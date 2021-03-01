@@ -1,10 +1,4 @@
-/**
- * 👋 Hey there!
- * This file is the starting point for your new WordPress/Gatsby site! 🚀
- * For more information about what this file is and does, see
- * https://www.gatsbyjs.com/docs/gatsby-config/
- *
- */
+require("dotenv").config({ path: `.env` });
 
 module.exports = {
   /**
