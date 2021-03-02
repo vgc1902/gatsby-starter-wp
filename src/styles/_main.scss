@@ -1,0 +1,13 @@
+@import "./normalize.css";
+@import "./style.css";
+@import "./__variables";
+@import "./components/__header";
+@import "./components/__post-archive";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+body {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-weight: 500;
+  color: $primary-color;
+}

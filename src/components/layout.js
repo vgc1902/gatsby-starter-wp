@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer"
 import Header from "./header"
 
-const Layout = ({ isHomePage, children }) => {
+const Layout = ({ children }) => {
   const {
     wp: {
       generalSettings: { title },
@@ -20,8 +20,8 @@ const Layout = ({ isHomePage, children }) => {
   `)
 
   return (
-    <div className="global-wrapper" data-is-root-path={isHomePage}>
-      <Header title={title} isHome={isHomePage} />
+    <div className="global-wrapper">
+      <Header title={title} />
 
       <main>{children}</main>
 

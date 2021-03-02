@@ -1,19 +1,35 @@
 import React from "react"
-import { Link } from "gatsby"
-import parse from "html-react-parser"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Logo from "../assets/img/logo-jcf.png"
 
-export const Header = ({ title, isHome }) => {
+export const Header = ({ title }) => {
+  const {
+    menuItems: { edges: menu },
+  } = useStaticQuery(graphql`
+    query MyQuery {
+      menuItems: allWpMenuItem(sort: { fields: [order] }) {
+        edges {
+          node {
+            id
+            url
+            label
+          }
+        }
+      }
+    }
+  `)
   return (
     <header className="global-header">
-      {isHome ? (
-        <h1 className="main-heading">
-          <Link to="/">{parse(title)}</Link>
-        </h1>
-      ) : (
-        <Link className="header-link-home" to="/">
-          {title}
-        </Link>
-      )}
+      <Link to="/">
+        <img src={Logo} alt="Junta Central Fallera" />
+      </Link>
+      <nav>
+        {menu.map(({ node: { label, url, id } }) => (
+          <Link key={id} to={url}>
+            {label}
+          </Link>
+        ))}
+      </nav>
     </header>
   )
 }

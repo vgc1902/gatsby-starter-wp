@@ -1,0 +1,24 @@
+header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    max-width: 80px;
+  }
+
+  nav {
+    display: flex;
+    a {
+      border-radius: 5px;
+      color: $primary-color;
+      margin: 0 8px;
+      padding: 8px;
+      text-decoration: none;
+
+      &:hover {
+        background: lighten(#000000, 95%);
+      }
+    }
+  }
+}

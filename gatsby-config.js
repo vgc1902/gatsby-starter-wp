@@ -8,6 +8,7 @@ module.exports = {
    * If you need any more you can search here: https://www.gatsbyjs.com/plugins/
    */
   plugins: [
+    `gatsby-plugin-sass`,
     {
       /**
        * First up is the WordPress source plugin that connects Gatsby
