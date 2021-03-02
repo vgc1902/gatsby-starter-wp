@@ -27,14 +27,22 @@ export const Header = ({ title }) => {
       </Link>
       <nav>
         <div className="nav-social">
-          <a href="https://www.facebook.com/Falla.Castellon" target="_blank">
+          <a
+            href="https://www.facebook.com/Falla.Castellon"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={FacebookLogo} alt="Facebook" />
           </a>
-          <a href="https://www.instagram.com/fallacastellon/" target="_blank">
+          <a
+            href="https://www.instagram.com/fallacastellon/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={InstagramLogo} alt="Facebook" />
           </a>
         </div>
-        <div class="nav-menu">
+        <div className="nav-menu">
           {menu.map(({ node: { label, url, id } }) => (
             <Link key={id} to={url}>
               {label}
