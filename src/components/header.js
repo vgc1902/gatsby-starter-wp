@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Logo from "../assets/img/logo-jcf.png"
+import Logo from "../assets/img/fcs-escudo.jpg"
 import FacebookLogo from "../assets/img/facebook.svg"
 import InstagramLogo from "../assets/img/instagram.svg"
 
