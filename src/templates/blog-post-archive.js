@@ -12,7 +12,7 @@ const BlogIndex = ({
 
   if (!posts.length) {
     return (
-      <Layout isHomePage>
+      <Layout>
         <SEO title="All posts" />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
@@ -23,7 +23,7 @@ const BlogIndex = ({
   }
 
   return (
-    <Layout isHomePage>
+    <Layout>
       <SEO title="All posts" />
 
       <ol style={{ listStyle: `none` }}>
@@ -55,7 +55,7 @@ export const pageQuery = graphql`
       nodes {
         excerpt
         uri
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD/MM/YYYY")
         title
         excerpt
       }

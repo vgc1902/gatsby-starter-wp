@@ -16,7 +16,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
     fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
     alt: post.featuredImage?.node?.alt || ``,
   }
-
+  console.log(post.excerpt)
   return (
     <Layout>
       <SEO title={post.title} description={post.excerpt} />
@@ -27,9 +27,10 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{parse(post.title)}</h1>
-
-          <p>{post.date}</p>
+          <div>
+            <h1 itemProp="headline">{parse(post.title)}</h1>
+            <p>{post.date}</p>
+          </div>
 
           {/* if we have a featured image for this post let's display it */}
           {featuredImage?.fluid && (
@@ -98,7 +99,7 @@ export const pageQuery = graphql`
       excerpt
       content
       title
-      date(formatString: "MMMM DD, YYYY")
+      date(formatString: "DD/MM/YYYY")
 
       featuredImage {
         node {

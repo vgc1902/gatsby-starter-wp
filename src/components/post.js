@@ -11,14 +11,15 @@ export const Post = ({ post }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h2>
-            <Link to={post.uri} itemProp="url">
-              <span itemProp="headline">{parse(post.title)}</span>
-            </Link>
-          </h2>
-          <small>{post.date}</small>
+          <div>
+            <h2>
+              <Link to={post.uri} itemProp="url">
+                <span itemProp="headline">{parse(post.title)}</span>
+              </Link>
+            </h2>
+            <small>{post.date}</small>
+          </div>
         </header>
-        <section itemProp="description">{parse(post.excerpt)}</section>
       </article>
     </li>
   )
