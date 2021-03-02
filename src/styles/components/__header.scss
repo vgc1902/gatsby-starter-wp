@@ -8,17 +8,42 @@ header {
   }
 
   nav {
+    align-items: flex-end;
     display: flex;
-    a {
-      border-radius: 5px;
-      color: $primary-color;
-      margin: 0 8px;
-      padding: 8px;
-      text-decoration: none;
+    flex-direction: column;
+    justify-content: flex-end;
 
-      &:hover {
-        background: lighten(#000000, 95%);
-      }
+    & > div,
+    a {
+      display: flex;
+    }
+  }
+}
+
+.nav-social {
+  a {
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 8px;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 20px;
+    height: 20px;
+  }
+}
+
+.nav-menu {
+  a {
+    border-radius: 5px;
+    color: $primary-color;
+    margin: 0 8px;
+    padding: 8px;
+    text-decoration: none;
+
+    &:hover {
+      background: lighten(#000000, 95%);
     }
   }
 }
