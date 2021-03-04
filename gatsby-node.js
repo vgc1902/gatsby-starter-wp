@@ -25,6 +25,8 @@ exports.createPages = async gatsbyUtilities => {
 
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
+  // Custom main page with last posts
+  await createMainPage({ posts, gatsbyUtilities })
 }
 
 /**
@@ -88,7 +90,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           // we want the first page to be "/" and any additional pages
           // to be numbered.
           // "/blog/2" for example
-          return page === 1 ? `/` : `/blog/${page}`
+          return page === 1 ? `/blog` : `/blog/${page}`
         }
 
         return null
@@ -163,4 +165,22 @@ async function getPosts({ graphql, reporter }) {
   }
 
   return graphqlResult.data.allWpPost.edges
+}
+
+async function createMainPage({ posts, gatsbyUtilities }) {
+  const postsLimit = 3
+  const postsChunkedIntoArchivePages = chunk(posts)
+
+  return Promise.all(
+    postsChunkedIntoArchivePages.map(async (_posts, index) => {
+      await gatsbyUtilities.actions.createPage({
+        path: "/",
+        component: path.resolve(`./src/templates/main.js`),
+        context: {
+          // We need to tell the template how many posts to display too
+          postsLimit,
+        },
+      })
+    })
+  )
 }

@@ -30,11 +30,7 @@ $size-xl: 32px;
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
-  --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
-    Times, serif;
+  --fontFamily-sans: Inter, Helvetica, sans-serif;
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
@@ -53,7 +49,7 @@ $size-xl: 32px;
   --fontSize-1: 1rem;
   --fontSize-2: 1.2rem;
   --fontSize-3: 1.44rem;
-  --fontSize-4: 1.728rem;
+  --fontSize-4: 1.8rem;
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;

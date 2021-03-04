@@ -4,12 +4,8 @@ import Layout from "../components/layout"
 import Post from "../components/post"
 import SEO from "../components/seo"
 
-const BlogIndex = ({
-  data,
-  pageContext: { nextPagePath, previousPagePath },
-}) => {
+const Main = ({ data }) => {
   const posts = data.allWpPost.nodes
-
   if (!posts.length) {
     return (
       <Layout>
@@ -24,34 +20,25 @@ const BlogIndex = ({
 
   return (
     <Layout>
-      <SEO title="All posts" />
-      <h1>Noticias</h1>
+      <SEO title="Last posts" />
+
       <ol style={{ listStyle: `none` }}>
         {posts.map((post, index) => (
           <Post key={index} post={post} />
         ))}
       </ol>
-
-      {previousPagePath && (
-        <>
-          <Link to={previousPagePath}>Previous page</Link>
-          <br />
-        </>
-      )}
-      {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
+      <Link to="/blog" style={{ color: `red` }}>
+        {`Ver todas las noticias ->`}
+      </Link>
     </Layout>
   )
 }
 
-export default BlogIndex
+export default Main
 
 export const pageQuery = graphql`
-  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
-    allWpPost(
-      sort: { fields: [date], order: DESC }
-      limit: $postsPerPage
-      skip: $offset
-    ) {
+  query($postsLimit: Int!) {
+    allWpPost(sort: { fields: [date], order: DESC }, limit: $postsLimit) {
       nodes {
         excerpt
         uri
