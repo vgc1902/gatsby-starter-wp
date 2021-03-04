@@ -26,6 +26,13 @@ export const Header = ({ title }) => {
         <img src={Logo} alt="Junta Central Fallera" />
       </Link>
       <nav>
+        <div className="nav-menu">
+          {menu.map(({ node: { label, url, id } }) => (
+            <Link key={id} to={url}>
+              {label}
+            </Link>
+          ))}
+        </div>
         <div className="nav-social">
           <a
             href="https://www.facebook.com/Falla.Castellon"
@@ -41,13 +48,6 @@ export const Header = ({ title }) => {
           >
             <img src={InstagramLogo} alt="Facebook" />
           </a>
-        </div>
-        <div className="nav-menu">
-          {menu.map(({ node: { label, url, id } }) => (
-            <Link key={id} to={url}>
-              {label}
-            </Link>
-          ))}
         </div>
       </nav>
     </header>

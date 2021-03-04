@@ -25,7 +25,6 @@ exports.createPages = async gatsbyUtilities => {
 
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
-  await createMainPage({ gatsbyUtilities })
 }
 
 /**
@@ -89,7 +88,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           // we want the first page to be "/" and any additional pages
           // to be numbered.
           // "/blog/2" for example
-          return page === 1 ? `/blog` : `/blog/${page}`
+          return page === 1 ? `/` : `/blog/${page}`
         }
 
         return null
@@ -164,11 +163,4 @@ async function getPosts({ graphql, reporter }) {
   }
 
   return graphqlResult.data.allWpPost.edges
-}
-
-async function createMainPage({ gatsbyUtilities }) {
-  await gatsbyUtilities.actions.createPage({
-    path: "/",
-    component: path.resolve(`./src/pages/pagina-ejemplo.js`),
-  })
 }
