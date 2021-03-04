@@ -25,7 +25,7 @@ const BlogIndex = ({
   return (
     <Layout>
       <SEO title="All posts" />
-
+      <h1>Noticias</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post, index) => (
           <Post key={index} post={post} />

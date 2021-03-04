@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "./normalize.css";
 @import "./__variables";
 @import "./components/__header";
-@import "./components/__post-archive";
 @import "./components/__post";
 
 *,
@@ -19,8 +18,9 @@ html {
 }
 
 body {
-  font-family: Montserrat, Helvetica, sans-serif;
+  font-family: var(--fontFamily-sans);
   font-size: var(--fontSize-root);
+  font-weight: normal;
   color: var(--color-text);
 }
 
@@ -39,39 +39,16 @@ h6 {
   letter-spacing: -0.025em;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: var(--fontWeight-bold);
-  color: var(--color-heading);
-}
-
 h1 {
-  font-weight: var(--fontWeight-black);
-  font-size: var(--fontSize-6);
-  color: var(--color-heading-black);
-}
-
-h2 {
-  font-size: var(--fontSize-5);
-}
-
-h3 {
   font-size: var(--fontSize-4);
 }
 
-h4 {
+h2 {
   font-size: var(--fontSize-3);
 }
 
-h5 {
+h3 {
   font-size: var(--fontSize-2);
-}
-
-h6 {
-  font-size: var(--fontSize-1);
 }
 
 a {
@@ -127,4 +104,8 @@ li > ul {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
+}
+
+.home-feed {
+  max-width: 60%;
 }
