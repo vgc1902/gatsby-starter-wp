@@ -168,7 +168,7 @@ async function getPosts({ graphql, reporter }) {
 }
 
 async function createMainPage({ posts, gatsbyUtilities }) {
-  const postsLimit = 3
+  const postsLimit = 5
   const postsChunkedIntoArchivePages = chunk(posts)
 
   return Promise.all(

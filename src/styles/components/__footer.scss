@@ -1,0 +1,11 @@
+footer {
+  a {
+    color: var(--color-text-light);
+    cursor: pointer;
+    margin-right: var(--spacing-4);
+
+    &:hover {
+      color: var(--color-heading);
+    }
+  }
+}

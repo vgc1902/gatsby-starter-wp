@@ -1,12 +1,22 @@
 import React from "react"
 
 export const Footer = () => {
-  const year = new Date().getFullYear()
   return (
     <footer>
-      © {year}, Built with
-      {` `}
-      <a href="https://www.ikode.io">Ikode</a>
+      <a
+        href="https://www.facebook.com/Falla.Castellon"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Facebook
+      </a>
+      <a
+        href="https://www.instagram.com/fallacastellon/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Instagram
+      </a>
     </footer>
   )
 }

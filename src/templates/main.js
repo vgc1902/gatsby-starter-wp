@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 
 const Main = ({ data }) => {
   const posts = data.allWpPost.nodes
+  const mediaItems = data.allFile.nodes
   if (!posts.length) {
     return (
       <Layout>
@@ -22,15 +23,39 @@ const Main = ({ data }) => {
     <Layout>
       <SEO title="Home" />
 
-      <div className="home-feed">
-        <ol style={{ listStyle: `none` }}>
-          {posts.map((post, index) => (
-            <Post key={index} post={post} />
-          ))}
-        </ol>
-        <Link to="/blog" style={{ color: `red` }}>
-          {`Ver todas las noticias ->`}
-        </Link>
+      <div>
+        <div className="home-feed">
+          <h3>
+            Últimas noticias{" "}
+            <span role="img" aria-label="Home latest news">
+              🗞️
+            </span>
+          </h3>
+          <ol style={{ listStyle: `none` }}>
+            {posts.map((post, index) => (
+              <Post key={index} post={post} />
+            ))}
+          </ol>
+          <Link to="/blog" style={{ color: `red` }}>
+            {`Ver todas las noticias ->`}
+          </Link>
+        </div>
+        <aside>
+          <h3>
+            Archivos{" "}
+            <span role="img" aria-label="Home latest news">
+              📄
+            </span>
+          </h3>
+          {mediaItems.map(({ publicURL, name }) => {
+            const splittedName = name.split("_")
+            return (
+              <a href={publicURL} download>
+                <span>{`${splittedName[1]} ${splittedName[2]}`}</span>
+              </a>
+            )
+          })}
+        </aside>
       </div>
     </Layout>
   )
@@ -47,6 +72,12 @@ export const pageQuery = graphql`
         date(formatString: "DD/MM/YYYY")
         title
         excerpt
+      }
+    }
+    allFile(filter: { extension: { eq: "pdf" } }, limit: 2) {
+      nodes {
+        name
+        publicURL
       }
     }
   }

@@ -25,7 +25,12 @@ const BlogIndex = ({
   return (
     <Layout>
       <SEO title="All posts" />
-      <h1>Noticias</h1>
+      <h3>
+        Noticias{" "}
+        <span role="img" aria-label="Home latest news">
+          🗞️
+        </span>
+      </h3>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post, index) => (
           <Post key={index} post={post} />

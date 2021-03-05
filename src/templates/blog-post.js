@@ -7,7 +7,6 @@ import parse from "html-react-parser"
 import "@wordpress/block-library/build-style/style.css"
 import "@wordpress/block-library/build-style/theme.css"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -16,7 +15,6 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
     fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
     alt: post.featuredImage?.node?.alt || ``,
   }
-  console.log(post.excerpt)
   return (
     <Layout>
       <SEO title={post.title} description={post.excerpt} />
@@ -28,8 +26,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
       >
         <header>
           <div>
-            <h1 itemProp="headline">{parse(post.title)}</h1>
-            <p>{post.date}</p>
+            <h1 itemProp="headline">{parse(post.title)} </h1>
           </div>
 
           {/* if we have a featured image for this post let's display it */}
@@ -45,12 +42,10 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         {!!post.content && (
           <section itemProp="articleBody">{parse(post.content)}</section>
         )}
-
+        <p></p>
         <hr />
 
-        <footer>
-          <Bio />
-        </footer>
+        <footer></footer>
       </article>
 
       <nav className="blog-post-nav">

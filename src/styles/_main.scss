@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "./normalize.css";
 @import "./__variables";
 @import "./components/__header";
 @import "./components/__post";
+@import "./components/__footer";
 
 *,
 :after,
@@ -24,6 +25,38 @@ body {
   color: var(--color-text);
 }
 
+main {
+  & > div {
+    display: flex;
+  }
+}
+
+aside {
+  flex: 0 0 320px;
+
+  & > a {
+    align-items: flex-start;
+    background: url("../assets/img/red_document.svg") no-repeat;
+    border-radius: 5px;
+    display: flex;
+    height: 160px;
+    justify-content: center;
+    margin: 2rem auto;
+    width: 100%;
+
+    span {
+      color: white;
+      font-weight: 500;
+      padding: var(--spacing-8) 0;
+    }
+  }
+
+  a:last-child {
+    background: url("../assets/img/purple_document.svg") no-repeat;
+    background-size: contain;
+  }
+}
+
 footer {
   padding: var(--spacing-6) var(--spacing-0);
 }
@@ -37,6 +70,7 @@ h5,
 h6 {
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
+  margin: 0;
 }
 
 h1 {
@@ -103,9 +137,11 @@ li > ul {
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  min-height: 100vh;
+  padding: var(--spacing-5);
 }
 
 .home-feed {
-  max-width: 60%;
+  flex: 1 1;
+  padding-right: 90px;
 }
