@@ -5,8 +5,14 @@ import Post from "../components/post"
 import SEO from "../components/seo"
 
 const Main = ({ data }) => {
+  const iconMap = ["🎉", "📕"]
   const posts = data.allWpPost.nodes
   const mediaItems = data.allFile.nodes
+  const updateMediaItems = mediaItems.map((mediaItem, i) => ({
+    ...mediaItem,
+    icon: iconMap[i],
+  }))
+  console.log(updateMediaItems)
   if (!posts.length) {
     return (
       <Layout>
@@ -47,10 +53,11 @@ const Main = ({ data }) => {
               📄
             </span>
           </h3>
-          {mediaItems.map(({ publicURL, name }) => {
+          {updateMediaItems.map(({ publicURL, name, icon }) => {
             const splittedName = name.split("_")
             return (
               <a href={publicURL} download>
+                <span>{icon}</span>
                 <span>{`${splittedName[1]} ${splittedName[2]}`}</span>
               </a>
             )
